@@ -27,7 +27,7 @@
                     <input type="password" class="form-control" id="password" placeholder="" name="password" required>
                 </div>
                 <div class="form-floating mb-2 was-validated">
-                    <label class="form-label" for="password2">Repaet Password:</label>
+                    <label class="form-label" for="password2">Repeat Password:</label>
                     <input type="password" class="form-control" id="password2" placeholder="" name="password2" required>
                 </div>
                 <div class="form-group form-check">
