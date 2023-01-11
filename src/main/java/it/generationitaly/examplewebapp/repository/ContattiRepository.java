@@ -19,4 +19,7 @@ public interface ContattiRepository {
 	Contatti findByTelefono(String telefono);
 	
 	Contatti findByMail(String mail);
+	
+	Contatti findByDomicilio(String domicilio);
+	
 }
