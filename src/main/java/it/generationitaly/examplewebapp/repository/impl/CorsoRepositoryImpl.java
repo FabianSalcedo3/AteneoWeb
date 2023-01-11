@@ -100,4 +100,27 @@ public class CorsoRepositoryImpl implements CorsoRepository {
 		return corso;
 	}
 
+	@Override
+	// Giulia
+	public List<Corso> findByCfu(int cfu) {
+		List<Corso> corsi = null;
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		try {
+			em = emf.createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			corsi = em.createQuery("from Corso c where c.cfu=:cfu ", Corso.class).setParameter("cfu", cfu).getResultList();
+			tx.commit();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			if (tx != null && tx.isActive())
+				tx.rollback();
+		} finally {
+			if (em != null)
+				em.close();
+		}
+		return corsi;
+	}
+
 }
