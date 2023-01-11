@@ -12,4 +12,6 @@ public interface CorsoRepository {
 	void update(Corso corso);
 	
 	Corso findById(int id);
+	
+	List<Corso> findByCfu(int cfu);
 }
