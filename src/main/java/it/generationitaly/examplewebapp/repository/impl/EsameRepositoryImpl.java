@@ -33,4 +33,25 @@ public class EsameRepositoryImpl implements EsameRepository {
 		
 	}
 
+	@Override
+	public void update(Esame esame) { // ALBERTOPOLI
+		EntityManager em = null;
+		EntityTransaction tx = null;
+		try {
+			em = emf.createEntityManager();
+			tx = em.getTransaction();
+			tx.begin();
+			em.merge(esame);
+			tx.commit();
+		} catch (Exception e) {
+			System.err.println(e.getMessage());
+			if (tx != null && tx.isActive())
+				tx.rollback();
+		} finally {
+			if (em != null)
+				em.close();
+		}
+		
+	}
+
 }
